@@ -8,8 +8,8 @@
 | Nombre | Usuario GitHub | Responsabilidad principal |
 |--------|----------------|---------------------------|
 | Darío Montoya | [@dariomontoya0505](https://github.com/dariomontoya0505) | _Creador del repositorio y cargue de informacion_ |
-| _Integrante 2_ | _@usuario_ | _por definir_ |
-| _Integrante 3_ | _@usuario_ | _por definir_ |
+| _2_ | _@usuario_ | _Tema 2_ |
+| _3_ | _@usuario_ | _Tema 3_ |
 
 ## Objetivo
 
