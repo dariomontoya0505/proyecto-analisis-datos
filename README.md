@@ -7,7 +7,7 @@
 
 | Nombre | Usuario GitHub | Responsabilidad principal |
 |--------|----------------|---------------------------|
-| Darío Montoya | [@dariomontoya0505](https://github.com/dariomontoya0505) | _por definir_ |
+| Darío Montoya | [@dariomontoya0505](https://github.com/dariomontoya0505) | _Creador del repositorio y cargue de informacion_ |
 | _Integrante 2_ | _@usuario_ | _por definir_ |
 | _Integrante 3_ | _@usuario_ | _por definir_ |
 
@@ -19,7 +19,7 @@ Explorar varias bases de datos de distintos tipos, seleccionar una con criterios
 
 | Base | Tipo | Origen | Registros × atributos | Resultado |
 |------|------|--------|-----------------------|-----------|
-| **Titanic** | Tabular | Secundaria | 891 × 15 | ✅ **Seleccionada** (24/25) |
+| **Titanic** | Tabular | Secundaria | 891 × 15 |  **Seleccionada** (24/25) |
 | Taxis NYC (marzo 2019) | Tabular + tiempo | Secundaria | 6 433 × 14 | 21/25 |
 | Digits (dígitos 8×8) | Imágenes | Secundaria/terciaria | 1 797 × 64 | 20/25 |
 | SMS Spam Collection | Texto | Secundaria | 5 572 × 2 | 19/25 |
@@ -104,4 +104,4 @@ Python 3, pandas, NumPy, Matplotlib, Seaborn, SciPy y scikit-learn.
 
 ## Video
 
-🎥 Enlace al video explicativo: _pendiente_
+🎥 Enlace al video explicativo:
