@@ -1,4 +1,4 @@
-# Proyecto de Análisis de Datos — Supervivencia en el Titanic
+# Proyecto de Análisis de Datos evento_2 1 — Supervivencia en el Titanic
 
 **Instituto Tecnológico Metropolitano (ITM)** · Ingeniería de Sistemas · Curso: Análisis de Datos
 **Docente:** Daniel Alexis Nieto Mora · **Semestre:** 2026-2 · **Evento evaluativo 2**
