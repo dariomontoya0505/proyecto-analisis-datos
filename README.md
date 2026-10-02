@@ -99,6 +99,7 @@ Python 3, pandas, NumPy, Matplotlib, Seaborn, SciPy y scikit-learn.
 ## Fuentes de datos
 
 - Titanic y Taxis NYC: repositorio [`mwaskom/seaborn-data`](https://github.com/mwaskom/seaborn-data).
+- Fuente original: Kaggle, Titanic – Machine Learning from Disaster: https://www.kaggle.com/competitions/titanic/data (archivo train.csv). Se usó la versión derivada del repositorio seaborn-data, que contiene los mismos 891 pasajeros.
 - SMS Spam Collection: Almeida, T. A. & Gómez Hidalgo, J. M. (2011), UCI Machine Learning Repository.
 - Digits: *Optical Recognition of Handwritten Digits*, UCI Machine Learning Repository (vía `sklearn.datasets.load_digits`).
 
