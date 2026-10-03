@@ -8,8 +8,8 @@
 | Nombre | Usuario GitHub | Responsabilidad principal |
 |--------|----------------|---------------------------|
 | Darío Montoya | [@dariomontoya0505](https://github.com/dariomontoya0505) | _Creador del repositorio y cargue de informacion_ |
-| _2_ | _@Casper128_ , [@Franyelica](https://github.com/Franyelica)| _Analisis y explicacion EDA_ |
-| _3_ | _@santiagopabon15_ | _Analisis y explicacion Preprocesamiento_ |
+| _2_ | _@Franyelica_ | _Tema 2_ |
+| _3_ | _@usuario_ | _Tema 3_ |
 
 ## Objetivo
 
@@ -110,25 +110,4 @@ Python 3, pandas, NumPy, Matplotlib, Seaborn, SciPy y scikit-learn.
 ## Video
 
 🎥 Enlace al video explicativo:
-
-
-## Guion y revisión
-
-El proyecto contiene **solo tres notebooks**. Las mejoras se integraron en la fase correspondiente:
-
-| Notebook | Contenido integrado |
-|---|---|
-| `01_exploracion_bases.ipynb` | Justificación de las cuatro candidatas, elección de Titanic y versiones del entorno |
-| `02_eda.ipynb` | Controles de calidad, intervalos del 95 % y cinco hipótesis con ajuste de Holm |
-| `03_preprocesamiento_pca.ipynb` | PCA sin redundancia familiar y preparación de entrenamiento/prueba |
-
-- [Guion del video podcast para tres personas](docs/guion_video.md): texto listo para ensayar, indicaciones de pantalla y duración objetivo de 7:50.
-- [Guion en Word](docs/guion_podcast_tres_personas.docx).
-- [Resumen de temas solicitados y utilizados en Markdown](docs/resumen_temas_solicitados_y_utilizados.md).
-- [Resumen en Word](docs/resumen_temas_solicitados_y_utilizados.docx).
-
-Los tres notebooks se pueden ejecutar desde la raíz del repositorio o desde `notebooks/`. Ejecutarlos en orden 01 → 02 → 03. Las tablas de las mejoras quedan en `reports/mejoras/`; cada notebook vuelve a leer sus datos originales cuando lo necesita.
-
-`data/titanic_procesado.csv` contiene el preprocesamiento exploratorio ajustado con toda la muestra. La sección 9 del notebook 03 ilustra cómo aprender cada transformación solo con entrenamiento. En validación cruzada, repetir el ajuste en cada pliegue. No usar `fila_origen` como predictor.
-
-Pendientes de entrega: completar nombres y responsabilidades, incorporar aportes reales de cada integrante y añadir el enlace del video de máximo 8 minutos.
+https://youtu.be/6uD6GjaJKXw
