@@ -8,7 +8,7 @@
 | Nombre | Usuario GitHub | Responsabilidad principal |
 |--------|----------------|---------------------------|
 | Darío Montoya | [@dariomontoya0505](https://github.com/dariomontoya0505) | _Creador del repositorio y cargue de informacion_ |
-| _2_ | _@Casper128_ , _@Franyelica_ | _Tema 2_ |
+| _2_ | _@Casper128_ , [@Franyelica](https://github.com/Franyelica)| _Tema 2_ |
 | _3_ | _@santiagopabon15_ | _Tema 3_ |
 
 ## Objetivo
