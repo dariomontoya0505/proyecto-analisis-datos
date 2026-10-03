@@ -21,10 +21,10 @@ Explorar varias bases de datos de distintos tipos, seleccionar una con criterios
 |------|------|--------|-----------------------|-----------|
 | **Titanic** | Tabular | Secundaria | 891 × 15 |  **Seleccionada** (24/25) |
 | Taxis NYC (marzo 2019) | Tabular + tiempo | Secundaria | 6 433 × 14 | 21/25 |
-| Digits (dígitos 8×8) | Imágenes | Secundaria/terciaria | 1 797 × 64 | 20/25 |
+| Digits (dígitos 8×8) | Imágenes | Secundaria | 1 797 × 64 | 20/25 |
 | SMS Spam Collection | Texto | Secundaria | 5 572 × 2 | 19/25 |
 
-Criterios: completitud, relevancia, documentación, manejabilidad y riqueza para el EDA. Titanic se eligió porque combina variables numéricas y categóricas, tiene **valores faltantes reales de distinta magnitud** (`deck` 77 %, `age` 20 %, `embarked` 0.2 %), **outliers legítimos** (`fare`) y una variable objetivo clara para plantear hipótesis.
+Criterios: completitud, relevancia, documentación, manejabilidad y riqueza para el EDA. Titanic se eligió porque combina variables numéricas y categóricas, tiene **valores faltantes reales de distinta magnitud** (`deck` 77 %, `age` 20 %, `embarked` 0.2 %), **valores extremos plausibles** (`fare`) y una variable objetivo clara para plantear hipótesis.
 
 ## Estructura del repositorio
 
@@ -42,8 +42,12 @@ proyecto-analisis-datos/
 │   ├── 02_eda.ipynb                    # Fase 2
 │   └── 03_preprocesamiento_pca.ipynb   # Fase 3
 ├── figures/                      # gráficas exportadas por los notebooks
+├── reports/mejoras/              # tablas, particiones y registro de verificación
 └── docs/
-    └── guion_video.md            # guion del video (máx. 8 min)
+    ├── guion_video.md            # guion del video podcast para tres personas
+    ├── guion_podcast_tres_personas.docx
+    ├── resumen_temas_solicitados_y_utilizados.md
+    └── resumen_temas_solicitados_y_utilizados.docx
 ```
 
 La base de imágenes (Digits) se carga directamente desde `scikit-learn`, por eso no está en `data/`.
@@ -65,31 +69,31 @@ Ejecutar los notebooks en orden (01 → 02 → 03). También se pueden abrir en 
 Carga y caracterización de 4 bases de 3 tipos (tabular, texto, imágenes): fuente, tipo de origen, tamaño, faltantes, documentación y aplicaciones. Matriz de criterios y justificación de la elección.
 
 ### Fase 2 — EDA (`02_eda.ipynb`)
-Calidad (duplicados, columnas redundantes), valores faltantes y su mecanismo, outliers (IQR, z-score, boxplots), distribuciones y asimetría, análisis univariado, tablas cruzadas, correlaciones de Pearson y Spearman, pairplot, y **5 hipótesis verificadas con pruebas estadísticas** (chi-cuadrado y Mann-Whitney).
+Calidad (duplicados, columnas redundantes), valores faltantes y su mecanismo, outliers (IQR, z-score, boxplots), distribuciones y asimetría, análisis univariado, tablas cruzadas, correlaciones de Pearson y Spearman, pairplot, y **5 hipótesis contrastadas con pruebas estadísticas** (chi-cuadrado y Mann-Whitney), ajuste de Holm e intervalos de Wilson.
 
 ### Fase 3 — Preprocesamiento y reducción (`03_preprocesamiento_pca.ipynb`)
 Eliminación de columnas redundantes, indicadores de faltantes, imputación por mediana agrupada, transformación `log1p`, codificación binaria y One-Hot, estandarización, **PCA** (varianza explicada, cargas, biplot) y comparación con **t-SNE**.
 
 ## Hallazgos principales
 
-1. **El sexo es el factor más determinante:** sobrevivió el 74 % de las mujeres y el 19 % de los hombres (V de Cramér = 0.54).
-2. **La clase social influyó:** 63 % de supervivencia en 1.ª clase, 47 % en 2.ª y 24 % en 3.ª.
+1. **El sexo presenta una asociación bivariada fuerte:** sobrevivió el 74 % de las mujeres y el 19 % de los hombres (V de Cramér = 0.54).
+2. **La supervivencia varía según clase:** 63 % de supervivencia en 1.ª clase, 47 % en 2.ª y 24 % en 3.ª.
 3. **Sexo y clase interactúan:** mujeres de 1.ª y 2.ª clase > 90 %; hombres de 2.ª y 3.ª < 16 %.
 4. **Los niños (≤ 12 años) sobrevivieron más** (58 % frente a 39 %).
 5. **Relación no lineal con la familia:** solos 30 %, familias de 2–4 personas 58 %, familias de 5 o más 16 %.
 6. **El faltante de `deck` es informativo:** con cubierta registrada sobrevivió el 67 %; sin ella, el 30 %.
-7. **Cherbourg tiene mayor supervivencia por composición:** el 51 % de quienes embarcaron allí eran de 1.ª clase.
-8. **PCA:** se requieren 7 de 11 componentes para el 90 % de la varianza; PC1 resume familia y gasto, PC2 clase y edad, PC4 el sexo. t-SNE separa grupos claros por sexo y clase.
+7. **Cherbourg tiene mayor supervivencia y una composición diferente:** el 51 % de quienes embarcaron allí eran de 1.ª clase.
+8. **PCA:** se requieren 7 de 11 componentes para el 90 % de la varianza; PC1 resume familia y gasto, PC2 clase y edad, PC4 el sexo. t-SNE muestra agrupaciones relacionadas con sexo y clase; no valida hipótesis por sí solo.
 
 ## Problemas de calidad y tratamiento
 
 | Problema | Tratamiento |
 |----------|-------------|
-| `deck` 77 % faltante (no aleatorio) | Se elimina y se crea el indicador `tiene_cubierta` |
+| `deck` 77 % faltante (asociado con clase) | Se elimina y se crea el indicador `tiene_cubierta` |
 | `age` 20 % faltante | Mediana por `pclass` y `sex` + indicador `edad_faltante` |
 | `embarked` 2 faltantes | Moda (`S`) |
 | Columnas redundantes (`alive`, `class`, `embark_town`, `alone`, `adult_male`, `who`) | Eliminadas (`alive` causaría fuga de información) |
-| `fare` sesgada (asimetría 4.8) con outliers reales | Se conservan y se aplica `log1p` (asimetría 0.39) |
+| `fare` sesgada (asimetría 4.8) con valores extremos plausibles | Se conservan y se aplica `log1p` (asimetría 0.39) |
 | Escalas distintas | `StandardScaler` |
 
 ## Herramientas
@@ -106,3 +110,25 @@ Python 3, pandas, NumPy, Matplotlib, Seaborn, SciPy y scikit-learn.
 ## Video
 
 🎥 Enlace al video explicativo:
+
+
+## Guion y revisión
+
+El proyecto contiene **solo tres notebooks**. Las mejoras se integraron en la fase correspondiente:
+
+| Notebook | Contenido integrado |
+|---|---|
+| `01_exploracion_bases.ipynb` | Justificación de las cuatro candidatas, elección de Titanic y versiones del entorno |
+| `02_eda.ipynb` | Controles de calidad, intervalos del 95 % y cinco hipótesis con ajuste de Holm |
+| `03_preprocesamiento_pca.ipynb` | PCA sin redundancia familiar y preparación de entrenamiento/prueba |
+
+- [Guion del video podcast para tres personas](docs/guion_video.md): texto listo para ensayar, indicaciones de pantalla y duración objetivo de 7:50.
+- [Guion en Word](docs/guion_podcast_tres_personas.docx).
+- [Resumen de temas solicitados y utilizados en Markdown](docs/resumen_temas_solicitados_y_utilizados.md).
+- [Resumen en Word](docs/resumen_temas_solicitados_y_utilizados.docx).
+
+Los tres notebooks se pueden ejecutar desde la raíz del repositorio o desde `notebooks/`. Ejecutarlos en orden 01 → 02 → 03. Las tablas de las mejoras quedan en `reports/mejoras/`; cada notebook vuelve a leer sus datos originales cuando lo necesita.
+
+`data/titanic_procesado.csv` contiene el preprocesamiento exploratorio ajustado con toda la muestra. La sección 9 del notebook 03 ilustra cómo aprender cada transformación solo con entrenamiento. En validación cruzada, repetir el ajuste en cada pliegue. No usar `fila_origen` como predictor.
+
+Pendientes de entrega: completar nombres y responsabilidades, incorporar aportes reales de cada integrante y añadir el enlace del video de máximo 8 minutos.

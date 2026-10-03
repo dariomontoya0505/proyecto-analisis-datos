@@ -1,0 +1,11 @@
+control,incumplimientos
+objetivo binario y presente,0
+clase entre 1 y 3,0
+sexo documentado,0
+edad entre 0 y 100 o ausente,0
+tarifa no negativa y presente,0
+sibsp entero no negativo,0
+parch entero no negativo,0
+puerto válido o ausente,0
+alive coincide con objetivo,0
+alone coincide con familiares,0
