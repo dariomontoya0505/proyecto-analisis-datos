@@ -1,0 +1,20 @@
+[
+  {
+    "notebook": "01_exploracion_bases.ipynb",
+    "celdas_codigo": 8,
+    "errores": 0,
+    "segundos": 3.37
+  },
+  {
+    "notebook": "02_eda.ipynb",
+    "celdas_codigo": 29,
+    "errores": 0,
+    "segundos": 7.95
+  },
+  {
+    "notebook": "03_preprocesamiento_pca.ipynb",
+    "celdas_codigo": 18,
+    "errores": 0,
+    "segundos": 6.64
+  }
+]
